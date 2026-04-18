@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #21262d;
+  --accent: #39d353;
+  --accent2: #58a6ff;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --border: #30363d;
+  --error: #f85149;
+  --success: #3fb950;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Code Editor Styles */
+.code-editor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--text);
+  resize: vertical;
+  min-height: 200px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.code-editor:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(57, 211, 83, 0.1);
+}
+
+/* Syntax Highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--muted);
+}
+
+.token.punctuation {
+  color: var(--text);
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--accent2);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--accent);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: var(--accent2);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--accent2);
+}
+
+.token.function,
+.token.class-name {
+  color: var(--accent);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--accent);
+}
+
+/* Button Styles */
+button {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--surface2);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button.primary {
+  background-color: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+button.primary:hover {
+  background-color: #2ea043;
+  border-color: #2ea043;
+  color: var(--bg);
+}
+
+button.secondary {
+  background-color: var(--accent2);
+  color: var(--bg);
+  border-color: var(--accent2);
+  font-weight: 600;
+}
+
+button.secondary:hover {
+  background-color: #4896e8;
+  border-color: #4896e8;
+}
+
+/* Input Styles */
+input,
+textarea,
+select {
+  font-family: inherit;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(57, 211, 83, 0.1);
+}
+
+/* Checkbox Styles */
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  animation: slideIn 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.success {
+  background-color: var(--success);
+  color: var(--bg);
+}
+
+.toast.error {
+  background-color: var(--error);
+  color: white;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .code-editor {
+    font-size: 12px;
+    padding: 10px;
+    min-height: 150px;
+  }
+
+  button {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
