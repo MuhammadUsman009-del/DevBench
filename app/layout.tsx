@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
@@ -49,6 +50,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: 'https://devbench.vercel.app',
               applicationCategory: 'DeveloperApplication',
             }),
+          }}
+        />
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-PS4FPR5P22"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-PS4FPR5P22');
+            `,
           }}
         />
       </head>
