@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Prose from '@/components/Prose';
 import TableOfContents from '@/components/TableOfContents';
 import BlogCard from '@/components/BlogCard';
-import { blogPosts, getRelatedPosts, getAllBlogPosts } from '@/lib/blog-posts';
+import BlogShareButtons from '@/components/BlogShareButtons';
+import { blogPosts, getRelatedPosts } from '@/lib/blog-posts';
 import { generateBlogMetadata, generateBlogPostSchema } from '@/lib/seo';
 import type { Heading } from '@/components/TableOfContents';
 
@@ -34,31 +35,6 @@ export async function generateStaticParams() {
   return Object.keys(blogPosts).map((slug) => ({
     slug,
   }));
-}
-
-// Extract headings from blog post content
-function extractHeadings(content: React.ReactNode): Heading[] {
-  const headings: Heading[] = [];
-  let headingCount = { h2: 0, h3: 0 };
-
-  React.Children.forEach(content, (child) => {
-    if (React.isValidElement(child)) {
-      if (child.type === 'h2') {
-        headingCount.h2++;
-        headingCount.h3 = 0;
-        const text = child.props.children?.toString() || '';
-        const slug = `h2-${headingCount.h2}`;
-        headings.push({ level: 2, text, slug });
-      } else if (child.type === 'h3') {
-        headingCount.h3++;
-        const text = child.props.children?.toString() || '';
-        const slug = `h3-${headingCount.h2}-${headingCount.h3}`;
-        headings.push({ level: 3, text, slug });
-      }
-    }
-  });
-
-  return headings;
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
@@ -118,36 +94,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
             {/* Sharing & Navigation */}
             <div className="mt-12 pt-8 border-t border-border">
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <Link
-                  href="/blog"
-                  className="text-accent hover:text-green-400 transition-colors flex items-center gap-2"
-                >
-                  ← Back to Blog
-                </Link>
-
-                <div className="flex gap-3">
-                  <a
-                    href={`https://twitter.com/intent/tweet?url=https://devbench.vercel.app/blog/${params.slug}&text=${encodeURIComponent(post.title)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 text-sm border border-accent text-accent rounded hover:bg-accent/10 transition-colors"
-                  >
-                    Share on X
-                  </a>
-                  <button
-                    onClick={() => {
-                      navigator.clipboard.writeText(
-                        `https://devbench.vercel.app/blog/${params.slug}`
-                      );
-                      alert('Link copied!');
-                    }}
-                    className="px-4 py-2 text-sm border border-accent text-accent rounded hover:bg-accent/10 transition-colors"
-                  >
-                    Copy Link
-                  </button>
-                </div>
-              </div>
+              <BlogShareButtons slug={params.slug} title={post.title} />
             </div>
 
             {/* Related Posts */}

@@ -1,9 +1,9 @@
 export const metadata = {
-  title: 'The Ultimate Regex Cheatsheet for Developers (2025)',
-  slug: 'regex-cheatsheet-developers',
-  date: 'April 5, 2025',
-  category: 'Reference',
-  readTime: 12,
+  title: 'What is Base64 Encoding? Everything Developers Need to Know',
+  slug: 'what-is-base64-encoding',
+  date: 'April 10, 2025',
+  category: 'Fundamentals',
+  readTime: 10,
 };
 
 export default function BlogPost() {

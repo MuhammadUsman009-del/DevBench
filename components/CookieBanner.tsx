@@ -5,20 +5,12 @@ import Link from 'next/link';
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
-  const [cookiePreferences, setCookiePreferences] = useState({
-    essential: true,
-    analytics: false,
-    marketing: false,
-  });
 
   useEffect(() => {
     // Check if user has already made a choice
     const stored = localStorage.getItem('cookieConsent');
     if (!stored) {
       setIsVisible(true);
-    } else {
-      const preferences = JSON.parse(stored);
-      setCookiePreferences(preferences);
     }
   }, []);
 
@@ -29,7 +21,6 @@ export default function CookieBanner() {
       marketing: true,
     };
     localStorage.setItem('cookieConsent', JSON.stringify(preferences));
-    setCookiePreferences(preferences);
     setIsVisible(false);
   };
 
@@ -40,7 +31,6 @@ export default function CookieBanner() {
       marketing: false,
     };
     localStorage.setItem('cookieConsent', JSON.stringify(preferences));
-    setCookiePreferences(preferences);
     setIsVisible(false);
   };
 

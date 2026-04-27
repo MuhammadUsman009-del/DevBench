@@ -4,7 +4,6 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import BlogCard from '@/components/BlogCard';
 import { getAllBlogPosts } from '@/lib/blog-posts';
-import type { BlogPost } from '@/lib/blog-posts';
 
 const CATEGORIES = ['All', 'Tutorial', 'Fundamentals', 'Reference', 'Security', 'Best Practices', 'Tools'] as const;
 const POSTS_PER_PAGE = 9;
@@ -191,35 +190,5 @@ export default function BlogIndexPage() {
         </div>
       </div>
     </article>
-  );
-}
-            <div className="text-3xl font-bold text-accent mb-2">{posts.length}</div>
-            <p className="text-muted">Published Articles</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-accent mb-2">Weekly</div>
-            <p className="text-muted">New Content Schedule</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-accent mb-2">100%</div>
-            <p className="text-muted">Free & Open</p>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="mt-12 border border-accent bg-dark-surface2 rounded-lg p-8 text-center">
-        <h3 className="text-2xl font-bold text-accent mb-3">Get Updates on New Articles</h3>
-        <p className="text-muted mb-6">
-          Subscribe to be notified when we publish new tutorials and guides. (Coming soon)
-        </p>
-        <button
-          disabled
-          className="px-6 py-2 bg-accent text-dark-bg font-semibold rounded-lg disabled:opacity-50 cursor-not-allowed"
-        >
-          Subscribe (Coming Soon)
-        </button>
-      </div>
-    </div>
   );
 }
