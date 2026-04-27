@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'DevBench' }],
   openGraph: {
     type: 'website',
-    url: 'https://devbench.vercel.app',
+    url: 'https://devbench-suite.vercel.app',
     title: 'DevBench — Free Online Developer Tools',
     description: 'Free online developer tools suite for developers. Format JSON, encode Base64, test Regex, and more.',
     siteName: 'DevBench',
@@ -25,10 +25,7 @@ export const metadata: Metadata = {
     description: 'Free online developer tools suite for developers.',
   },
   alternates: {
-    canonical: 'https://devbench.vercel.app',
-  },
-  other: {
-    'google-adsense-account': 'ca-pub-3504045393651231',
+    canonical: 'https://devbench-suite.vercel.app',
   },
 };
 
@@ -36,6 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* HARDCODED ADSENSE META TAG FOR VERIFICATION */}
+        <meta name="google-adsense-account" content="ca-pub-3504045393651231" />
+
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@type': 'WebApplication',
               name: 'DevBench',
               description: 'Free online developer tools suite',
-              url: 'https://devbench.vercel.app',
+              url: 'https://devbench-suite.vercel.app',
               applicationCategory: 'DeveloperApplication',
             }),
           }}
