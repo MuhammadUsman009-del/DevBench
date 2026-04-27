@@ -258,6 +258,54 @@ hashed = pwd_context.hash("mypassword")`}</code>
       <p>
         Never use MD5 for security-sensitive operations. The cost of upgrading to SHA-256 is minimal, but the security benefits are enormous.
       </p>
+
+      {/* Key Takeaways */}
+      <section className="bg-surface rounded-lg p-6 my-8 border border-border">
+        <h3 className="text-xl font-bold text-accent mb-4">Key Takeaways</h3>
+        <ul className="space-y-2 text-text">
+          <li>✓ MD5 produces 128-bit (16-byte) hashes; SHA-256 produces 256-bit (32-byte) hashes</li>
+          <li>✓ MD5 is cryptographically broken; SHA-256 is secure and recommended</li>
+          <li>✓ Never use MD5 for passwords, digital signatures, or security-critical applications</li>
+          <li>✓ For password hashing, use bcrypt, Argon2, or scrypt instead of either algorithm</li>
+          <li>✓ MD5's only legitimate uses are checksums where collision attacks don't matter</li>
+        </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="my-8">
+        <h3 className="text-xl font-bold text-accent mb-4">Frequently Asked Questions</h3>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Can I still use MD5?</summary>
+          <p className="text-muted mt-2">Only for non-security purposes like checksums. Never for passwords, digital signatures, or any security-sensitive application. Use SHA-256 instead.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">How long does it take to crack SHA-256?</summary>
+          <p className="text-muted mt-2">With current technology, brute-forcing SHA-256 is computationally infeasible. It would take billions of years with all computing power on Earth.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Should I use SHA-512 instead?</summary>
+          <p className="text-muted mt-2">SHA-512 is slightly slower and provides overkill for most applications. SHA-256 is the practical standard. Use SHA-512 only if specific requirements demand it.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Is SHA-256 resistant to rainbow tables?</summary>
+          <p className="text-muted mt-2">SHA-256 alone is not enough for passwords. Always use a cryptographic salt (built into bcrypt and Argon2) to defeat rainbow tables.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">What's the difference between SHA-256 and SHA-3?</summary>
+          <p className="text-muted mt-2">SHA-3 is newer and uses a different algorithm structure. Both are secure. SHA-256 remains more widely used and is perfectly adequate for most use cases.</p>
+        </details>
+      </section>
+
+      {/* CTA Box */}
+      <div className="bg-accent/10 border border-accent rounded-lg p-6 my-8">
+        <h3 className="text-lg font-bold text-accent mb-2">Try it on DevBench</h3>
+        <p className="text-text mb-4">Generate MD5, SHA-256, and other hashes instantly. Compare algorithms side-by-side. 100% client-side processing.</p>
+        <a href="/hash-generator" className="inline-block px-4 py-2 bg-accent text-dark-bg font-semibold rounded hover:bg-green-400 transition-colors">
+          Open Hash Generator →
+        </a>
+      </div>
+
+      <p className="text-xs text-muted italic mt-8">Last updated: {new Date().toLocaleDateString()}</p>
     </>
   );
 }

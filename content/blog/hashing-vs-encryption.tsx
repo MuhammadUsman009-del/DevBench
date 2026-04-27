@@ -353,6 +353,54 @@ password_hash = sha256(password + salt)`}</code>
       <p>
         When in doubt: encrypt sensitive data in transit and at rest, and hash passwords with a purpose-built algorithm.
       </p>
+
+      {/* Key Takeaways */}
+      <section className="bg-surface rounded-lg p-6 my-8 border border-border">
+        <h3 className="text-xl font-bold text-accent mb-4">Key Takeaways</h3>
+        <ul className="space-y-2 text-text">
+          <li>✓ Hashing is one-way and irreversible; encryption is two-way and reversible</li>
+          <li>✓ Use hashing for passwords (with bcrypt, Argon2) and integrity checks</li>
+          <li>✓ Use encryption for protecting sensitive data in transit and at rest</li>
+          <li>✓ Never use plain MD5 or SHA-256 for passwords; use dedicated password hashing</li>
+          <li>✓ Encoding is neither hashing nor encryption; it's just format transformation</li>
+        </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="my-8">
+        <h3 className="text-xl font-bold text-accent mb-4">Frequently Asked Questions</h3>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Can I decrypt a hash?</summary>
+          <p className="text-muted mt-2">No. Hashing is one-way by design. You cannot reverse it. If you need to retrieve data, use encryption instead.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Why use hashing instead of encryption for passwords?</summary>
+          <p className="text-muted mt-2">If your database is breached and passwords are encrypted, the attacker just needs your encryption key. With hashing, the passwords can't be decrypted, making them worthless.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">What's a salt?</summary>
+          <p className="text-muted mt-2">A random value added to data before hashing. It prevents rainbow table attacks and ensures identical passwords produce different hashes. Bcrypt and Argon2 handle salts automatically.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Is base64 encoding secure?</summary>
+          <p className="text-muted mt-2">No. Base64 is just encoding, not encryption. Anyone can decode it easily. Only use it for format transformation, never for security.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Should I encrypt before hashing?</summary>
+          <p className="text-muted mt-2">Generally no. For passwords, hash directly. Encryption before hashing adds complexity without security benefits. Keep it simple.</p>
+        </details>
+      </section>
+
+      {/* CTA Box */}
+      <div className="bg-accent/10 border border-accent rounded-lg p-6 my-8">
+        <h3 className="text-lg font-bold text-accent mb-2">Try it on DevBench</h3>
+        <p className="text-text mb-4">Generate hashes (MD5, SHA-256) and compare different algorithms. Understand the differences between hashing and encryption firsthand.</p>
+        <a href="/hash-generator" className="inline-block px-4 py-2 bg-accent text-dark-bg font-semibold rounded hover:bg-green-400 transition-colors">
+          Open Hash Generator →
+        </a>
+      </div>
+
+      <p className="text-xs text-muted italic mt-8">Last updated: {new Date().toLocaleDateString()}</p>
     </>
   );
 }

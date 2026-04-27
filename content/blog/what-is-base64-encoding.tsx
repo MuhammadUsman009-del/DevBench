@@ -264,6 +264,54 @@ console.log(decoded);  // Hello World`}</code>
       <p>
         Use our Base64 encoder/decoder to quickly encode and decode data without writing code. For production applications, use the native Base64 functions in your programming language of choice.
       </p>
+
+      {/* Key Takeaways */}
+      <section className="bg-surface rounded-lg p-6 my-8 border border-border">
+        <h3 className="text-xl font-bold text-accent mb-4">Key Takeaways</h3>
+        <ul className="space-y-2 text-text">
+          <li>✓ Base64 is encoding, not encryption — don't use it for security</li>
+          <li>✓ It transforms binary data into readable ASCII text using 64 characters</li>
+          <li>✓ Common use cases: data URLs, email, JWTs, HTTP Basic Auth</li>
+          <li>✓ Every 3 bytes of input = 4 characters of Base64 (33% size increase)</li>
+          <li>✓ URL-safe Base64 replaces + and / with - and _ for URL safety</li>
+        </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="my-8">
+        <h3 className="text-xl font-bold text-accent mb-4">Frequently Asked Questions</h3>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Is Base64 secure?</summary>
+          <p className="text-muted mt-2">No. Base64 is encoding, not encryption. Anyone can decode it. Use AES or RSA for sensitive data, not Base64.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Can I decode Base64 easily?</summary>
+          <p className="text-muted mt-2">Yes, completely. With any decoder (including DevBench). This is why it's never for security—it's for transformation and transmission.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Why add 33% size overhead?</summary>
+          <p className="text-muted mt-2">Base64 uses 6 bits per character (2^6 = 64 values). Binary uses 8 bits, so encoding 3 bytes (24 bits) requires 4 Base64 characters (24 bits).</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">When should I use URL-safe Base64?</summary>
+          <p className="text-muted mt-2">Use URL-safe Base64 when including encoded data in URLs or query parameters, as + and / can be misinterpreted.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Is Base64 a standard?</summary>
+          <p className="text-muted mt-2">Yes. It's defined in RFC 4648. All implementations produce the same results, making it highly portable across platforms and languages.</p>
+        </details>
+      </section>
+
+      {/* CTA Box */}
+      <div className="bg-accent/10 border border-accent rounded-lg p-6 my-8">
+        <h3 className="text-lg font-bold text-accent mb-2">Try it on DevBench</h3>
+        <p className="text-text mb-4">Encode and decode Base64 strings instantly. Supports text, images, and binary data. 100% client-side processing.</p>
+        <a href="/base64" className="inline-block px-4 py-2 bg-accent text-dark-bg font-semibold rounded hover:bg-green-400 transition-colors">
+          Open Base64 Encoder →
+        </a>
+      </div>
+
+      <p className="text-xs text-muted italic mt-8">Last updated: {new Date().toLocaleDateString()}</p>
     </>
   );
 }

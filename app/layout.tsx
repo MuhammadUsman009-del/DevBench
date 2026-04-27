@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -72,9 +73,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-dark-bg text-text">
+        {/* Skip to content link for accessibility */}
+        <a
+          href="#main-content"
+          className="absolute -top-full left-0 bg-accent text-dark-bg px-4 py-2 focus:top-0 z-50 rounded-b"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

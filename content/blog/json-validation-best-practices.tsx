@@ -364,6 +364,54 @@ const validData = Object.keys(data)
       <p>
         Robust JSON validation is not optional — it's essential for building secure, reliable applications. Combine client-side validation for user experience with comprehensive server-side validation for security. Use established libraries and schemas rather than writing custom validation logic. When in doubt, validate, and always assume user input is potentially malicious.
       </p>
+
+      {/* Key Takeaways */}
+      <section className="bg-surface rounded-lg p-6 my-8 border border-border">
+        <h3 className="text-xl font-bold text-accent mb-4">Key Takeaways</h3>
+        <ul className="space-y-2 text-text">
+          <li>✓ Validate on server-side ALWAYS, even with client-side validation in place</li>
+          <li>✓ Use established libraries (Zod, Joi, Pydantic) instead of custom validation</li>
+          <li>✓ Validate schema, types, and business logic constraints</li>
+          <li>✓ Reject unknown fields to prevent prototype pollution attacks</li>
+          <li>✓ Limit JSON size and nesting depth to prevent DoS attacks</li>
+        </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="my-8">
+        <h3 className="text-xl font-bold text-accent mb-4">Frequently Asked Questions</h3>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Do I really need server-side validation?</summary>
+          <p className="text-muted mt-2">Yes, absolutely. Client-side validation is for UX. Server-side is required for security. Always validate server-side.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Should I use JSON Schema or library validation?</summary>
+          <p className="text-muted mt-2">Both have uses. JSON Schema is portable and language-agnostic. Libraries like Zod are more flexible with better error messages. Choose based on requirements.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">What is prototype pollution?</summary>
+          <p className="text-muted mt-2">An attack where malicious JSON sets properties on Object.prototype, affecting all objects. Prevent by using whitelist validation and rejecting unknown fields.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">How do I report validation errors?</summary>
+          <p className="text-muted mt-2">Return detailed, field-specific error messages. Include the field name, what was wrong, and expected format. Avoid exposing internal logic in error messages.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Can I validate async (database lookups)?</summary>
+          <p className="text-muted mt-2">Yes. Most libraries support async validation. Use it for checking IDs exist, emails are unique, etc. Combine with sync validation first for efficiency.</p>
+        </details>
+      </section>
+
+      {/* CTA Box */}
+      <div className="bg-accent/10 border border-accent rounded-lg p-6 my-8">
+        <h3 className="text-lg font-bold text-accent mb-2">Try it on DevBench</h3>
+        <p className="text-text mb-4">Validate JSON syntax instantly. Paste your JSON and check for errors before using in your application. 100% client-side.</p>
+        <a href="/json-formatter" className="inline-block px-4 py-2 bg-accent text-dark-bg font-semibold rounded hover:bg-green-400 transition-colors">
+          Open JSON Validator →
+        </a>
+      </div>
+
+      <p className="text-xs text-muted italic mt-8">Last updated: {new Date().toLocaleDateString()}</p>
     </>
   );
 }

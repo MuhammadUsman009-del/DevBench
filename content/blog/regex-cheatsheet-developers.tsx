@@ -324,6 +324,54 @@ console.log(domain);    // "example.com"`}</code>
       <p>
         Remember: when in doubt, test your regex! Our online regex tester makes it easy to validate patterns against test strings before using them in your code.
       </p>
+
+      {/* Key Takeaways */}
+      <section className="bg-surface rounded-lg p-6 my-8 border border-border">
+        <h3 className="text-xl font-bold text-accent mb-4">Key Takeaways</h3>
+        <ul className="space-y-2 text-text">
+          <li>✓ Start with character classes [abc] and quantifiers +, *, ?, {n,m}</li>
+          <li>✓ Use anchors ^ and $ to match beginning and end of strings</li>
+          <li>✓ Groups () capture substrings; alternation | provides OR logic</li>
+          <li>✓ Flags (g, i, m, s) modify pattern behavior globally, case-insensitive, multiline, or dotall</li>
+          <li>✓ Test thoroughly before production use — edge cases matter in regex</li>
+        </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="my-8">
+        <h3 className="text-xl font-bold text-accent mb-4">Frequently Asked Questions</h3>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Which regex syntax should I learn?</summary>
+          <p className="text-muted mt-2">JavaScript/PCRE regex is most widely used. Most languages support similar syntax with minor differences. Learn PCRE basics and you'll understand 90% of regex everywhere.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Why is my regex so slow?</summary>
+          <p className="text-muted mt-2">Catastrophic backtracking occurs with nested quantifiers like (a+)+. Avoid patterns like .*.*. or (.+)+. Use atomic grouping (?>...) or possessive quantifiers where supported.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Should I use regex for complex validation?</summary>
+          <p className="text-muted mt-2">No. For complex patterns (emails, URLs), use dedicated libraries or validation functions. Regex gets unwieldy fast. Keep patterns simple.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Can regex match nested structures?</summary>
+          <p className="text-muted mt-2">No. Regex is not designed for nested patterns like balanced parentheses. Use parsing libraries instead.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">What's lookahead vs lookbehind?</summary>
+          <p className="text-muted mt-2">Lookahead (?=...) matches only if followed by pattern; lookbehind (?<=...) matches only if preceded by pattern. Both are zero-width assertions.</p>
+        </details>
+      </section>
+
+      {/* CTA Box */}
+      <div className="bg-accent/10 border border-accent rounded-lg p-6 my-8">
+        <h3 className="text-lg font-bold text-accent mb-2">Try it on DevBench</h3>
+        <p className="text-text mb-4">Test your regular expressions instantly. Supports JavaScript regex syntax with real-time match highlighting. 100% client-side.</p>
+        <a href="/regex-tester" className="inline-block px-4 py-2 bg-accent text-dark-bg font-semibold rounded hover:bg-green-400 transition-colors">
+          Open Regex Tester →
+        </a>
+      </div>
+
+      <p className="text-xs text-muted italic mt-8">Last updated: {new Date().toLocaleDateString()}</p>
     </>
   );
 }

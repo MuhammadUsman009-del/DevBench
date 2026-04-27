@@ -265,6 +265,54 @@ encodeURIComponent('hello')
       <p>
         Use our URL encoder tool to quickly test encoding without writing code, and bookmark this guide for reference.
       </p>
+
+      {/* Key Takeaways */}
+      <section className="bg-surface rounded-lg p-6 my-8 border border-border">
+        <h3 className="text-xl font-bold text-accent mb-4">Key Takeaways</h3>
+        <ul className="space-y-2 text-text">
+          <li>✓ URL encoding replaces special characters with %HH where HH is the hex value</li>
+          <li>✓ Reserved characters (+, &, =) have special meaning and must be encoded in data</li>
+          <li>✓ Use encodeURIComponent() for query values, encodeURI() for full URLs</li>
+          <li>✓ Always encode user input before including in URLs to prevent XSS and injection attacks</li>
+          <li>✓ Spaces are encoded as %20 (or + in application/x-www-form-urlencoded)</li>
+        </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="my-8">
+        <h3 className="text-xl font-bold text-accent mb-4">Frequently Asked Questions</h3>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Do I need to encode the domain name?</summary>
+          <p className="text-muted mt-2">No. Only encode query parameters and path segments. The domain should remain unencoded.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">What's the difference between encodeURI and encodeURIComponent?</summary>
+          <p className="text-muted mt-2">encodeURI preserves URL structure (doesn't encode / or :), while encodeURIComponent encodes everything except A-Z a-z 0-9 - _ . ~</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Is %20 the same as +?</summary>
+          <p className="text-muted mt-2">In application/x-www-form-urlencoded data (form submissions), + means space. In URLs, %20 means space. They're context-dependent.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">Can I decode %20 back to space?</summary>
+          <p className="text-muted mt-2">Yes, use decodeURIComponent('%20') in JavaScript or your language's equivalent. It returns a space character.</p>
+        </details>
+        <details className="mb-4 border border-border rounded p-4 cursor-pointer hover:bg-surface transition-colors">
+          <summary className="font-semibold text-white">What about Unicode characters?</summary>
+          <p className="text-muted mt-2">Unicode is first encoded to UTF-8 bytes, then each byte is percent-encoded. This ensures compatibility with older systems.</p>
+        </details>
+      </section>
+
+      {/* CTA Box */}
+      <div className="bg-accent/10 border border-accent rounded-lg p-6 my-8">
+        <h3 className="text-lg font-bold text-accent mb-2">Try it on DevBench</h3>
+        <p className="text-text mb-4">Encode and decode URLs instantly. Choose between URI and URI Component modes. 100% client-side processing.</p>
+        <a href="/url-encoder" className="inline-block px-4 py-2 bg-accent text-dark-bg font-semibold rounded hover:bg-green-400 transition-colors">
+          Open URL Encoder →
+        </a>
+      </div>
+
+      <p className="text-xs text-muted italic mt-8">Last updated: {new Date().toLocaleDateString()}</p>
     </>
   );
 }
