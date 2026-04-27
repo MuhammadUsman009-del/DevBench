@@ -53,6 +53,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
+        {/* Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3504045393651231"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         {/* Google Analytics */}
         <Script
           async
