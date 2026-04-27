@@ -53,19 +53,19 @@ export default function Footer() {
             <h3 className="font-semibold mb-3">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-muted hover:text-accent transition-colors">
-                  Documentation
-                </a>
+                <Link href="/about" className="text-muted hover:text-accent transition-colors">
+                  About
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted hover:text-accent transition-colors">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted hover:text-accent transition-colors">
+                <Link href="/blog" className="text-muted hover:text-accent transition-colors">
                   Blog
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-muted hover:text-accent transition-colors">
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
@@ -75,19 +75,24 @@ export default function Footer() {
             <h3 className="font-semibold mb-3">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-muted hover:text-accent transition-colors">
-                  Privacy
-                </a>
+                <Link href="/privacy-policy" className="text-muted hover:text-accent transition-colors">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted hover:text-accent transition-colors">
-                  Terms
-                </a>
+                <Link href="/terms-of-service" className="text-muted hover:text-accent transition-colors">
+                  Terms of Service
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted hover:text-accent transition-colors">
-                  Contact
-                </a>
+                <Link href="/disclaimer" className="text-muted hover:text-accent transition-colors">
+                  Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookie-policy" className="text-muted hover:text-accent transition-colors">
+                  Cookie Policy
+                </Link>
               </li>
             </ul>
           </div>
