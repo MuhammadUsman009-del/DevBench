@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://devbench.vercel.app',
   },
+  other: {
+    'google-adsense-account': 'ca-pub-3504045393651231',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
